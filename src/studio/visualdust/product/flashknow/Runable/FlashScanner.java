@@ -11,7 +11,6 @@ import java.io.FileOutputStream;
 
 public class FlashScanner extends Thread {
     File[] listRoots;
-    //    Vector<FlashDrive> driveList;
     MainThread mainThread;
 
     public FlashScanner(MainThread mainThread) {
@@ -34,7 +33,7 @@ public class FlashScanner extends Thread {
                 }
             }
             try {
-                sleep(500);
+                sleep(Resource.checkDelayTime);
             } catch (Exception e) {
                 EventRW.Write(e);
             }

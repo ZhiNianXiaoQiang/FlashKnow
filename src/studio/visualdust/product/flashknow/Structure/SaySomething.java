@@ -46,10 +46,10 @@ public class SaySomething {
     }
 
     public String getRandOP() {
-        return OP.elementAt((int) (Math.random() * (OP.size() - 2.5)));
+        return OP.elementAt((int) (Math.random() * (OP.size() - 3)));
     }
 
     public String getRandED() {
-        return ED.elementAt((int) (Math.random() * (OP.size() - 2.5)));
+        return ED.elementAt((int) (Math.random() * (OP.size() - 3)));
     }
 }

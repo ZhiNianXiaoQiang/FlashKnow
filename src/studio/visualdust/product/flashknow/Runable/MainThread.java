@@ -46,6 +46,7 @@ public class MainThread {
 
     public void InitFlashDrive(File file) {
         FlashInfoFillerFrame flashInfoFillerFrame = new FlashInfoFillerFrame(file);
+        Speaker.Speak("请问这个U盘是谁的？我第一次见到它");
         while (flashInfoFillerFrame.isVisible()) {
             System.out.println("Waiting");
         }
@@ -70,7 +71,7 @@ public class MainThread {
         public void run() {
             for (; ; ) {
                 try {
-                    sleep(500);
+                    sleep(Resource.checkDelayTime);
                     nowRootList = File.listRoots();
                     Vector<FlashDrive> driveList = new Vector<>();
                     for (int i = 0; i < nowRootList.length; i++) {
@@ -91,11 +92,4 @@ public class MainThread {
             }
         }
     }
-
-//    public static void main(String[] args) {
-//        File file = new File("D:\\" + Resource.infLocation + "discription");
-//        file.getParentFile().mkdirs();
-//        FileWriter.Write(file, "discription", false);
-//        FileWriter.Write(file, "ownerName", true);
-//    }
 }

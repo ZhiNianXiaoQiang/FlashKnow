@@ -34,20 +34,4 @@ public class Speaker {
     public static void main(String[] args) {
         Speak("Speaker Test");
     }
-
-//    private class SpeakThread extends Thread {
-//        @Override
-//        public void run() {
-//            for (; ; ) {
-//                if (!speakerFileQue.isEmpty()) {
-//                    //Read a file from head and pop it soon
-//                }
-//                try {
-//                    sleep(233);
-//                } catch (Exception e) {
-//                    EventRW.Write(e);
-//                }
-//            }
-//        }
-//    }
 }

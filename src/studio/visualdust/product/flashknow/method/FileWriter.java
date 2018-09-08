@@ -17,18 +17,4 @@ public class FileWriter {
             EventRW.Write(e);
         }
     }
-
-//    public static File Write(String filePath, String fileType, String string) {
-//        File outputFile = new File(filePath + fileType);
-//        try {
-//            FileWriterStream = new FileOutputStream(outputFile, false);
-//            FileWriterStream.write(string.getBytes());
-//            FileWriterStream.close();
-//        } catch (Exception e) {
-//            EventRW.Write(e);
-//        }
-//        if (outputFile.exists())
-//            return outputFile;
-//        return null;
-//    }
 }

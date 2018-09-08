@@ -7,7 +7,6 @@ import studio.visualdust.product.flashknow.method.FileWriter;
 import javax.swing.filechooser.FileSystemView;
 import java.io.*;
 import java.nio.charset.Charset;
-import java.security.PublicKey;
 
 public class FlashDrive {
     public String name;
@@ -52,7 +51,6 @@ public class FlashDrive {
         if (!isKnownFlash(file)) return null;
         FlashDrive flashDrive = new FlashDrive(null, null, null, null, null);
         try {
-//            FileReader reader = new FileReader(new File(file.getPath() + Resource.infLocation + "discription"));
             InputStream inputStream = new FileInputStream(new File(file.getPath() + Resource.infLocation + "discription"));
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, Charset.forName("UTF-8")));
             String tmpDiscription = bufferedReader.readLine();
@@ -60,6 +58,7 @@ public class FlashDrive {
             String tmpDriveName = FileSystemView.getFileSystemView().getSystemDisplayName(file);
             String tmpType = FileSystemView.getFileSystemView().getSystemTypeDescription(file);
             flashDrive = new FlashDrive(tmpDriveName, tmpType, tmpOwnerName, tmpDiscription, file);
+            bufferedReader.close();
         } catch (Exception e) {
             EventRW.Write(e);
         }
