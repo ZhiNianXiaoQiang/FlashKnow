@@ -1,10 +1,7 @@
 package studio.visualdust.product.flashknow.method;
 
-import studio.visualdust.product.flashknow.Resource.Resource;
-
 import java.io.File;
 import java.time.LocalTime;
-import java.util.Queue;
 
 public class Speaker {
     public static String speakFilePath = "D:\\";
@@ -19,10 +16,13 @@ public class Speaker {
     }
 
     public static void Speak(String sentence) {
-//        File file = FileWriter.Write(speakFilePath + getRandFileName(), speakFileType, "CreateObject(\"SAPI.SpVoice\").Speak(\"" + sentence + "\")");
+//        File file = new File(speakFilePath + getRandFileName() + speakFileType);
+//        FileWriter.WriteUnicode(file, sentence, false);
         try {
 //            file.deleteOnExit();
             Runtime.getRuntime().exec("mshta vbscript:CreateObject(\"SAPI.SpVoice\").Speak(\"" + sentence + "\")(window.close)");
+            EventRW.Write("Speaking : " + sentence);
+//            Runtime.getRuntime().exec(file.getPath());
 //            EventRW.Write("Speaking with file " + file.getPath());
         } catch (Exception e) {
             EventRW.Write(e);
@@ -30,8 +30,7 @@ public class Speaker {
 //        file.delete();
     }
 
-
-    public static void main(String[] args) {
-        Speak("Speaker Test");
-    }
+//    public static void main(String[] args) {
+//        Speak("Speaker Test");
+//    }
 }

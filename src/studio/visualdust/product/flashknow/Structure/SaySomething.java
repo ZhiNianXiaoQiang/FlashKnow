@@ -5,6 +5,7 @@ import java.util.Vector;
 public class SaySomething {
     public Vector<String> OP = new Vector<>();
     public Vector<String> ED = new Vector<>();
+    public Vector<String> LE = new Vector<>();
 
     public SaySomething() {
 //        try {
@@ -24,7 +25,7 @@ public class SaySomething {
 //            OP = tmpOP;
 //            ED = tmpED;
 //        } catch (Exception e) {
-//            EventRW.Write(e);
+//            EventRW.WriteUTF8(e);
 //        }
         OP.add("日安");
         OP.add("今天天气还不错");
@@ -32,7 +33,7 @@ public class SaySomething {
         OP.add("欢迎回来");
         OP.add("心情怎么样");
         OP.add("上顿吃了什么");
-        OP.add("想不想下班");
+        OP.add("是不是很想下班");
         OP.add("来上课了吗");
         OP.add("感觉如何");
 
@@ -43,13 +44,23 @@ public class SaySomething {
         ED.add("接下来是你的时间");
         ED.add("干嘛不先放松一下");
 
+        LE.add("祝你好运");
+        LE.add("祝你开心");
+        LE.add("下次见");
+        LE.add("日安");
+        LE.add("代我向其他人问好");
+
     }
 
     public String getRandOP() {
-        return OP.elementAt((int) (Math.random() * (OP.size() - 3)));
+        return OP.elementAt((int) (Math.random() * (OP.size() - 1)));
     }
 
     public String getRandED() {
-        return ED.elementAt((int) (Math.random() * (OP.size() - 3)));
+        return ED.elementAt((int) (Math.random() * (ED.size() - 1)));
+    }
+
+    public String getRandLE() {
+        return LE.elementAt((int) (Math.random() * (LE.size() - 1)));
     }
 }

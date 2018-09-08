@@ -46,7 +46,7 @@ public class MainThread {
 
     public void InitFlashDrive(File file) {
         FlashInfoFillerFrame flashInfoFillerFrame = new FlashInfoFillerFrame(file);
-        Speaker.Speak("请问这个U盘是谁的？我第一次见到它");
+        Speaker.Speak("请问这个U盘是谁的？我们好像初次见面");
         while (flashInfoFillerFrame.isVisible()) {
             System.out.println("Waiting");
         }
@@ -54,8 +54,8 @@ public class MainThread {
         String discription = flashInfoFillerFrame.getDiscription();
         File f = new File(file.getPath() + Resource.infLocation + "discription");
         f.getParentFile().mkdirs();
-        FileWriter.Write(new File(file.getPath() + Resource.infLocation + "discription"), discription, false);
-        FileWriter.Write(new File(file.getPath() + Resource.infLocation + "discription"), ownerName, true);
+        FileWriter.WriteUTF8(new File(file.getPath() + Resource.infLocation + "discription"), discription, false);
+        FileWriter.WriteUTF8(new File(file.getPath() + Resource.infLocation + "discription"), ownerName, true);
         try {
             EventRW.Write("attrib +s +h " + file.getPath() + "DriveInfo");
             Runtime.getRuntime().exec("attrib +s +h " + file.getPath() + "DriveInfo");
@@ -82,7 +82,7 @@ public class MainThread {
                     for (int i = 0; i < oriDriveList.size(); i++) {
                         if (!BeIn(oriDriveList.elementAt(i), driveList)) {
                             EventRW.Write("Disconnected " + oriDriveList.elementAt(i).toString());
-                            Speaker.Speak("再见" + oriDriveList.elementAt(i).getOwnerNmae() + "，祝开心");
+                            Speaker.Speak("再见" + oriDriveList.elementAt(i).getOwnerNmae() +"，"+ saySomething.getRandLE());
                             oriDriveList.removeElementAt(i);
                         }
                     }

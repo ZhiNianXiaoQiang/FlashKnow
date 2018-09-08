@@ -58,7 +58,7 @@ public class FlashDrive {
             String tmpDriveName = FileSystemView.getFileSystemView().getSystemDisplayName(file);
             String tmpType = FileSystemView.getFileSystemView().getSystemTypeDescription(file);
             flashDrive = new FlashDrive(tmpDriveName, tmpType, tmpOwnerName, tmpDiscription, file);
-            bufferedReader.close();
+//            bufferedReader.close();
         } catch (Exception e) {
             EventRW.Write(e);
         }
@@ -67,8 +67,8 @@ public class FlashDrive {
 
     public static FlashDrive InitFlashDrive(String ownerNmae, String discription, File path) {
         File tmpFile = new File(path + Resource.infLocation + "discription");
-        FileWriter.Write(tmpFile, discription, true);
-        FileWriter.Write(tmpFile, ownerNmae, true);
+        FileWriter.WriteUTF8(tmpFile, discription, true);
+        FileWriter.WriteUTF8(tmpFile, ownerNmae, true);
         return getDriveClassOf(path);
     }
 

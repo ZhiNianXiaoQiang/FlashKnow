@@ -9,7 +9,7 @@ public class Resource {
     public static String staticTag = "本地磁盘";
     public static String infLocation = "DriveInfo\\Studio.VisualDust.Product\\FlashKnow\\";
 
-    public static int checkDelayTime = 1000;
+    public static int checkDelayTime = 500;
 
     public Resource() {
     }
