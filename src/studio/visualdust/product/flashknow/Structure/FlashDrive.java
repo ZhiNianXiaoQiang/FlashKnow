@@ -48,6 +48,7 @@ public class FlashDrive {
     }
 
     public static FlashDrive getDriveClassOf(File file) {
+        EventRW.Write("Trying to getDriveClass of "+file.getPath());
         if (!isKnownFlash(file)) return null;
         FlashDrive flashDrive = new FlashDrive(null, null, null, null, null);
         try {

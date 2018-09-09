@@ -1,7 +1,10 @@
 package studio.visualdust.product.flashknow.GUI;
 
+import studio.visualdust.product.flashknow.Structure.FlashDrive;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.Vector;
 
 public class Console extends JFrame {
     int HEIGHT = 400;
@@ -11,6 +14,8 @@ public class Console extends JFrame {
     JScrollPane listScollPane = new JScrollPane(driveList);
 
     Console console = this;
+
+    Vector<FlashDrive> flashDrives = new Vector<>();
 
     public Console() {
         this.setLayout(null);
